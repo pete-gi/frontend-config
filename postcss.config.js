@@ -4,6 +4,7 @@ const presetEnv = require("postcss-preset-env");
 const cssNano = require("cssnano");
 const combineMediaQuery = require("postcss-combine-media-query");
 const extractMediaQuery = require("postcss-extract-media-query");
+const packageConfig = require("./package.json").config;
 
 module.exports = {
   syntax: "postcss-scss",
@@ -21,7 +22,7 @@ module.exports = {
     combineMediaQuery,
     extractMediaQuery({
       output: {
-        path: path.join(__dirname, "public/styles"),
+        path: path.join(__dirname, `${packageConfig.dist}/styles`),
         name: "[name].[query].[ext]",
       },
       extractAll: false,

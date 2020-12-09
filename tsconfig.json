@@ -19,7 +19,7 @@
     "baseUrl": "./",
     "paths": {
       "*": [
-        "web_modules/.types/*"
+        "public/web_modules/.types/*"
       ],
       "@scripts/*": [
         "assets/scripts/*"
@@ -45,8 +45,7 @@
     },
     "types": [
       "snowpack-env",
-      "jest",
-      "validator"
+      "jest"
     ]
   }
 }

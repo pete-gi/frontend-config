@@ -1,17 +1,21 @@
 {
+  "config": {
+    "src": "assets",
+    "dist": "public"
+  },
   "name": "frontend-config",
   "version": "1.0.0",
   "description": "Ready to use frontend assets configration",
   "main": "index.js",
   "scripts": {
-    "clear:js": "rm -rf -f public/styles || true",
-    "clear:css": "rm -rf -f public/scripts || true",
-    "clear:snowpack": "rm -rf -f public/.compilation || true && rm -rf -f public/web_modules || true",
+    "clear:js": "rm -rf -f $npm_package_config_dist/styles || true",
+    "clear:css": "rm -rf -f $npm_package_config_dist/scripts || true",
+    "clear:snowpack": "rm -rf -f $npm_package_config_dist/.compilation || true && rm -rf -f $npm_package_config_dist/web_modules || true",
     "watch:ts": "NODE_ENV=development snowpack build --watch",
-    "watch:scss": "sass --watch assets/styles/views:public/styles --source-map-urls=absolute --style=expanded --load-path=assets/styles/**/*,node_modules",
+    "watch:scss": "sass --watch assets/styles/views:$npm_package_config_dist/styles --source-map-urls=absolute --style=expanded --load-path=assets/styles/**/*,node_modules",
     "build:ts": "NODE_ENV=production snowpack build",
-    "build:scss": "sass assets/styles/views:public/styles --no-source-map --style=expanded --load-path=assets/styles/**/*,node_modules && npm run postcss",
-    "postcss": "postcss public/styles/*.css --replace --no-map",
+    "build:scss": "sass assets/styles/views:$npm_package_config_dist/styles --no-source-map --style=expanded --load-path=assets/styles/**/*,node_modules && npm run postcss",
+    "postcss": "postcss $npm_package_config_dist/styles/*.css --replace --no-map",
     "lint:ts": "eslint ./assets --ext=.ts --fix",
     "lint:scss": "stylelint ./assets/styles/**/*.scss --fix",
     "clear": "concurrently \"npm run clear:js\" \"npm run clear:css\" \"npm run clear:snowpack\"",

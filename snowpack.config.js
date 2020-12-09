@@ -1,9 +1,11 @@
+const packageConfig = require("./package.json").config;
+
 /** @type {import("snowpack").SnowpackUserConfig } */
 const config = {
   mount: {
-    "assets/scripts": "/scripts",
-    "assets/styles": "/styles",
-    "assets/images": "/images",
+    [`${packageConfig.src}/scripts`]: "/scripts",
+    [`${packageConfig.src}/styles`]: "/styles",
+    [`${packageConfig.src}/images`]: "/images",
   },
   plugins: ["@snowpack/plugin-typescript"],
   install: [
@@ -18,7 +20,7 @@ const config = {
   buildOptions: {
     sourceMaps: true,
     clean: false,
-    out: "public",
+    out: packageConfig.dist,
     metaDir: ".compilation",
   },
   testOptions: {
@@ -28,13 +30,13 @@ const config = {
     /* ... */
   },
   alias: {
-    "@scripts": "./assets/scripts",
-    "@Interfaces": "./assets/scripts/Interfaces",
-    "@Types": "./assets/scripts/Types",
-    "@Enums": "./assets/scripts/Enums",
-    "@Handlers": "./assets/scripts/Handlers",
-    "@Services": "./assets/scripts/Handlers",
-    "@Layers": "./assets/scripts/Layers",
+    "@scripts": `./${packageConfig.src}/scripts`,
+    "@Interfaces": `./${packageConfig.src}/scripts/Interfaces`,
+    "@Types": `./${packageConfig.src}/scripts/Types`,
+    "@Enums": `./${packageConfig.src}/scripts/Enums`,
+    "@Handlers": `./${packageConfig.src}/scripts/Handlers`,
+    "@Services": `./${packageConfig.src}/scripts/Handlers`,
+    "@Layers": `./${packageConfig.src}/scripts/Layers`,
   },
 };
 
