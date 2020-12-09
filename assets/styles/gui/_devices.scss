@@ -1,0 +1,18 @@
+@mixin mobile {
+  @media (hover: none) and (pointer: coarse), (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (hover: none) and (pointer: coarse),
+    (min-width: 769px) and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (hover: hover) and (pointer: fine) and (min-width: 1281px) {
+    @content;
+  }
+}

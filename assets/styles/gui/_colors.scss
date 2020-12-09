@@ -1,0 +1,28 @@
+@use './preferables' as prefers;
+
+@mixin base {
+  :root {
+    --color-primary: #2e38ff;
+    --color-primary-light: #2e38ff;
+    --color-primary-dark: #2e38ff;
+
+    --color-grey: #4d4d4d;
+    --color-grey-light: #4d4d4d;
+    --color-grey-dark: #4d4d4d;
+
+    --color-success: #13a938;
+    --color-error: #c50d07;
+
+    @include prefers.normal-contrast {
+      --color-primary: #6169ff;
+      --color-primary-light: #9499ff;
+      --color-primary-dark: #2e38ff;
+    }
+
+    @include prefers.normal-contrast {
+      --color-grey: #808080;
+      --color-grey-light: #d9d9d9;
+      --color-grey-dark: #4d4d4d;
+    }
+  }
+}

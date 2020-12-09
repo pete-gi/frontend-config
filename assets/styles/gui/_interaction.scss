@@ -1,0 +1,20 @@
+@mixin hover {
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline currentColor;
+    @content;
+  }
+}
+
+@mixin focus {
+  &:focus {
+    @content;
+  }
+}
+
+@mixin active {
+  &:active {
+    outline: 1px solid black;
+    @content;
+  }
+}

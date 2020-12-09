@@ -1,0 +1,35 @@
+/// Media query for prefers dark mode
+/// Default system color-scheme is 'light' (or 'no-preference' which also means 'light')
+/// @name dark
+@mixin dark {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+/// Media query for prefers default contrast
+/// By default we have styles with higher contrast
+/// @name normal-contrast
+@mixin normal-contrast {
+  // @media (prefers-contrast: no-preference) {
+  @content;
+  // }
+}
+
+/// Media query for more motion
+/// By default we have styles for reduced motion
+/// @name motion
+@mixin motion {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+/// Media query for allowed transparency
+/// By default we have styles without transparenced elements
+/// @name motion
+@mixin transparency {
+  // @media (prefers-reduced-transparency: no-preference) {
+  @content;
+  // }
+}

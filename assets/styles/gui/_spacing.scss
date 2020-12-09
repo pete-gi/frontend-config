@@ -1,0 +1,13 @@
+@mixin base {
+  :root {
+    --space-1: 1rem;
+    --space-2: 1.5rem;
+    --space-3: 2rem;
+    --space-4: 2.5rem;
+    --space-5: 3rem;
+    --space-small: 0.75rem;
+    --space-xsmall: 0.5rem;
+    --space-large: 5rem;
+    --space-xlarge: 10rem;
+  }
+}

@@ -1,0 +1,51 @@
+@use './devices' as device;
+@use './interaction' as interaction;
+@use './preferables' as prefers;
+
+@mixin primary {
+  align-items: center;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  color: white;
+  display: inline-flex;
+  font-size: var(--font-size-medium);
+  justify-content: center;
+  padding: var(--space-small) var(--space-1);
+  text-align: center;
+
+  @include prefers.motion {
+    transition: background-color 0.3s;
+    will-change: background-color;
+  }
+
+  @include interaction.hover {
+    background-color: var(--color-primary-light);
+    text-decoration: none;
+  }
+
+  @include interaction.active {
+    background-color: var(--color-primary-dark);
+
+    @include prefers.motion {
+      transition: background-color 0s;
+      will-change: background-color;
+    }
+  }
+
+  @include device.mobile {
+    padding: var(--space-1) var(--space-2);
+    width: 100%;
+  }
+
+  @include device.tablet {
+    font-size: var(--font-size-large);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  @include device.desktop {
+    font-size: var(--font-size-medium);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  @content;
+}

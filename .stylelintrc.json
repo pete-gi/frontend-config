@@ -1,0 +1,36 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "rules": {
+    "value-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "at-rule-no-vendor-prefix": true,
+    "declaration-no-important": true,
+    "no-unknown-animations": true,
+    "number-leading-zero": "always",
+    "string-quotes": "single",
+    "max-nesting-depth": 5,
+    "color-named": [
+      "always-where-possible",
+      {
+        "ignoreProperties": [
+          "/^--/"
+        ]
+      }
+    ],
+    "selector-class-pattern": "^([a-z]+(\\w+?))$",
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": [
+          "attribute",
+          "class"
+        ]
+      }
+    ]
+  },
+  "ignoreFiles": [
+    "assets/styles/gui/_reset.scss"
+  ]
+}
