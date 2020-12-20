@@ -1,6 +1,5 @@
 @mixin hover {
-  &:hover,
-  &:focus-visible {
+  &:hover {
     text-decoration: underline currentColor;
     @content;
   }
@@ -8,6 +7,18 @@
 
 @mixin focus {
   &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin hover-focus {
+  @include hover {
+    @content;
+  }
+  @include focus {
     @content;
   }
 }

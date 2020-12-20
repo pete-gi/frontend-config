@@ -7,6 +7,7 @@
   - babel
   - eslint
     - prettier/typescript recommended
+  - compiles to Native ES Modules
 - sass
   - dart sass
     - ready to use gui mixins
@@ -43,3 +44,9 @@
 - `postcss` - postcss for built styles
 - `list` - lint ts and sass
 - `test` - run tests
+
+## Configuration
+
+- paths
+  - package.json - `config`
+  - tsconfig.json - manual
